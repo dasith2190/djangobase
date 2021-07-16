@@ -1,0 +1,35 @@
+{% extends "user_base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Log in {% endblock %}
+{% block content %}
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+    <div id="formContent" class="login-form">
+        <h1 id="form-heading">Log In</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                {{ form|crispy}}
+                <input type="hidden" name="next" value="test_index"/>
+            </fieldset>
+            <div class="mt-4" style="text-align: center;">
+                <input style="" class="fadeIn fourth" type="submit" value="Log In"/>
+                <a href="{% url 'register' %}">Sign up</a>
+            </div>
+        </form>
+
+        <!-- Remind Passowrd -->
+        <div id="formFooter" class="mt-2">
+            <a class="underlineHover" href="#">Forgot Password?</a>
+        </div>
+
+    </div>
+</div>
+{% endblock content %}
+

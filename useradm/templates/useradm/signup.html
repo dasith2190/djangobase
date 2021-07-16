@@ -1,0 +1,22 @@
+{% extends "user_base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Register{% endblock %}
+{% block content %}
+<div class="wrapper fadeInDown">
+  <div id="formContent" class="signup-form">
+      <h1 id="form-heading">Register</h1>
+
+      <form method="POST" method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            {{ form|crispy}}
+        </fieldset>
+
+        <div class="mt-4">
+            <input style="" class="fadeIn fourth" type="submit" value="Register"/>
+            <a href="{% url 'login' %}">Login</a>
+        </div>
+    </form>
+</div>
+</div>
+{% endblock content %}
